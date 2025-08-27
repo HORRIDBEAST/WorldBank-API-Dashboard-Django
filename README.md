@@ -1,160 +1,337 @@
-# World Bank Interactive Data Dashboard
+# World Bank Data Dashboard
 
-## 📊 Live Application
+A comprehensive Django web application that displays interactive visualizations of World Bank data, featuring user authentication and dynamic filtering capabilities.
 
-**URL:** **[[YOUR LIVE URL HERE](https://worldbank-api-dashboard-django-2.onrender.com/)]** _(e.g., https://your-app-name.onrender.com)_
+## 🚀 Live Demo
 
----
+**Deployed URL**: [https://worldbank-api-dashboard-django-2.onrender.com/]
 
-## 🚀 Project Overview
+## 📋 Table of Contents
 
-This full-stack web application provides an interactive and dynamic dashboard for visualizing global development data sourced directly from the World Bank. Built with a robust Django backend and a classic HTML/CSS/JavaScript frontend, the application allows users to explore complex datasets through intuitive charts and filters. The project fulfills all requirements of the Full Stack Developer Intern assignment, demonstrating proficiency in backend development, API integration, frontend data visualization, and cloud deployment.
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [API Endpoints](#api-endpoints)
+- [Installation & Setup](#installation--setup)
+- [Deployment](#deployment)
+- [Architecture](#architecture)
+- [Probable Issues & Solutions](#probable-issues--solutions)
+- [Contributing](#contributing)
 
+## ✨ Features
 
+### 🔐 Authentication System
+- **User Registration**: New users can create accounts
+- **User Login/Logout**: Secure authentication using Django's built-in system
+- **Protected Routes**: Dashboard access restricted to authenticated users only
 
-[Image of the dashboard application interface]
+### 📊 Interactive Dashboard
+- **Multiple Chart Types**: Line charts, bar charts, and area charts
+- **Real-time Data**: Dynamic data fetched from Django backend APIs
+- **Interactive Filtering**: 
+  - Filter by country selection
+  - Date range filtering (year-based)
+  - Category-based filtering
+- **Responsive Design**: Mobile-friendly interface
 
+### 📈 Data Visualization Categories
+1. **Economic Indicators**
+   - GDP (Current US$)
+   - GDP Growth Rate
+   
+2. **Population Statistics**
+   - Total Population
+   - Population Growth
 
-## ✨ Key Features
+3. **Climate Data**
+   - CO2 Emissions
+   - Temperature anomalies
 
-* **Secure User Authentication**: Full registration, login, and logout functionality using Django's built-in session authentication system. The dashboard is protected and accessible only to authenticated users.
-* **Dynamic, Multi-Category Dashboard**: Users can switch between different data categories (Economic, Climate, Education, Health) to explore a wide range of global indicators.
-* **Interactive Data Visualizations**: The dashboard renders multiple chart types (Line, Bar, Doughnut) for each data category, providing different perspectives on the data (e.g., trends over time vs. latest-year comparisons).
-* **Live Data Filtering**: All charts can be dynamically updated by filtering data based on a selection of countries and a specified date range.
-* **Real-time API Integration**: Data is fetched live from the World Bank Open Data API, ensuring the visualizations are always up-to-date.
-* **Responsive Design**: The user interface is built with Bootstrap, making it accessible and functional across various devices and screen sizes.
-* **Cloud Deployed**: The application is deployed and publicly accessible on Render, configured for production use with Gunicorn and WhiteNoise.
+4. **Education Metrics**
+   - Literacy rates
+   - School enrollment
 
----
+5. **Health Indicators**
+   - Life expectancy
+   - Healthcare statistics
 
-## 🛠️ Technology Stack
+## 🛠 Technology Stack
 
-This project leverages a powerful and reliable stack to deliver a seamless user experience.
+### Backend
+- **Django 4.2.7**: Web framework
+- **Django REST Framework 3.14.0**: API development
+- **SQLite**: Database (development/production)
+- **Gunicorn**: WSGI server for production
 
-* **Backend**:
-    * **Django (4.2.7)**: The high-level Python web framework used for the entire backend logic, user authentication, and API serving.
-    * **Django REST Framework (DRF)**: A powerful toolkit for building robust and secure Web APIs.
-    * **Gunicorn**: A production-ready WSGI HTTP server for deploying the Django application.
-* **Frontend**:
-    * **HTML5 & CSS3**: For the structure and styling of the web pages.
-    * **JavaScript (ES6+)**: For handling user interactions, API calls (`fetch`), and dynamically rendering charts.
-    * **Chart.js**: A modern and popular charting library for creating beautiful, interactive, and responsive data visualizations.
-    * **Bootstrap**: A leading CSS framework for building responsive, mobile-first websites.
-* **Database**:
-    * **SQLite**: The default Django database used for local development and storing user authentication data.
-* **Deployment**:
-    * **Render**: A modern cloud platform for deploying web applications.
-    * **WhiteNoise**: For efficiently serving static files (CSS, JS) in a production environment.
-* **Data Source**:
-    * **World Bank Open Data API**: The official source for all visualized data.
+### Frontend
+- **HTML5/CSS3**: Structure and styling
+- **JavaScript (Vanilla)**: Interactive functionality
+- **Chart.js**: Data visualization library
+- **Bootstrap 5**: Responsive UI components
 
----
+### Deployment
+- **Render**: Cloud hosting platform
+- **WhiteNoise**: Static file serving
+- **Gunicorn**: Production WSGI server
 
-## 🏗️ Architecture and Design
+### External APIs
+- **World Bank API**: Real-time data source
 
-The application follows a traditional monolithic architecture, where the Django backend serves both the HTML templates and the JSON data for the charts.
+## 📁 Project Structure
 
-1.  **User Authentication**: Django's built-in `django.contrib.auth` system manages user models, sessions, and password security. The `@login_required` decorator protects the main dashboard view, while DRF's `IsAuthenticated` permission class secures all API endpoints.
-2.  **Frontend Rendering**: Django's templating engine renders the `base.html` structure and the initial dashboard layout. All further dynamic behavior is handled by client-side JavaScript.
-3.  **API Layer**: A set of API endpoints (e.g., `/api/gdp-data/`, `/api/climate-data/`) are defined using Django REST Framework. These endpoints are responsible for:
-    * Receiving requests from the frontend with filter parameters (countries, years, indicator).
-    * Calling a dedicated `WorldBankAPI` helper class to fetch the corresponding data from the external World Bank API.
-    * Processing and formatting the raw data into a clean JSON structure suitable for Chart.js.
-    * Returning the JSON response to the frontend.
-4.  **Client-Side Logic**: The `dashboard.html` template contains extensive JavaScript code that:
-    * Handles user interactions with the category and filter dropdowns.
-    * Constructs and sends `fetch` requests to the Django backend's API endpoints based on user selections.
-    * Manages the UI state, such as showing and hiding different chart sections and displaying a loading indicator.
-    * Parses the JSON response from the backend and uses Chart.js to render or update the charts on the page.
+```
+backend/
+├── .env.example                 # Environment variables template
+├── .gitignore                   # Git ignore file
+├── dashboard/                   # Main Django app
+│   ├── admin.py                # Django admin configuration
+│   ├── apps.py                 # App configuration
+│   ├── models.py               # Database models
+│   ├── serializers.py          # DRF serializers
+│   ├── urls.py                 # App URL patterns
+│   └── views.py                # API views and logic
+├── dashboard_project/           # Django project settings
+│   ├── settings.py             # Project configuration
+│   ├── urls.py                 # Main URL configuration
+│   ├── wsgi.py                 # WSGI configuration
+│   └── __init__.py
+├── db.sqlite3                  # SQLite database
+├── manage.py                   # Django management script
+├── Procfile                    # Render deployment config
+├── requirements.txt            # Python dependencies
+├── runtime.txt                 # Python version specification
+├── templates/                  # HTML templates
+│   ├── base.html              # Base template
+│   ├── dashboard/
+│   │   └── dashboard.html     # Main dashboard
+│   └── registration/
+│       ├── login.html         # Login page
+│       └── register.html      # Registration page
+└── static/                     # Static files (CSS, JS, images)
+```
 
----
+## 🔌 API Endpoints
 
-## 🚀 Local Development Setup
+### Authentication Endpoints
+- `GET/POST /login/` - User login
+- `POST /logout/` - User logout  
+- `GET/POST /register/` - User registration
 
-Follow these instructions to get the project running on your local machine.
+### Dashboard Endpoints
+- `GET /` - Main dashboard (authenticated users only)
+
+### Data API Endpoints
+- `GET /api/countries/` - Fetch available countries
+- `GET /api/gdp-data/` - GDP data with country/year filtering
+- `GET /api/population-data/` - Population statistics
+- `GET /api/climate-data/` - Climate and environmental data
+- `GET /api/education-data/` - Education indicators
+- `GET /api/health-data/` - Health statistics
+- `GET /api/test/` - Debug endpoint for World Bank API testing
+
+### API Parameters
+Most data endpoints support the following query parameters:
+- `countries`: Comma-separated country codes (e.g., `US,IN,CN`)
+- `start_year`: Starting year for data range
+- `end_year`: Ending year for data range
+
+## 🚀 Installation & Setup
 
 ### Prerequisites
+- Python 3.8+
+- pip (Python package installer)
+- Git
 
-* Python 3.8+
-* pip (Python package installer)
-* A virtual environment tool (like `venv`)
+### Local Development Setup
 
-### Installation Steps
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd backend
+   ```
 
-1.  **Clone the Repository**
-    ```bash
-    git clone [YOUR GITHUB REPO URL HERE]
-    cd your-repo-name
-    ```
+2. **Create virtual environment**
+   ```bash
+   python -m venv venv
+   
+   # Windows
+   venv\Scripts\activate
+   
+   # macOS/Linux
+   source venv/bin/activate
+   ```
 
-2.  **Create and Activate a Virtual Environment**
-    ```bash
-    # Create the environment
-    python -m venv venv
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-    # Activate on Windows
-    .\venv\Scripts\activate
+4. **Environment Configuration**
+   ```bash
+   # Copy environment template
+   cp .env.example .env
+   
+   # Edit .env with your configurations
+   # Add SECRET_KEY, DEBUG settings, etc.
+   ```
 
-    # Activate on macOS/Linux
-    source venv/bin/activate
-    ```
+5. **Database Setup**
+   ```bash
+   python manage.py migrate
+   python manage.py createsuperuser  # Optional: Create admin user
+   ```
 
-3.  **Install Dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
+6. **Run Development Server**
+   ```bash
+   python manage.py runserver
+   ```
 
-4.  **Set Up Environment Variables**
-    * Create a `.env` file in the project root directory.
-    * Add the following content. For local development, these defaults are sufficient.
-    ```env
-    SECRET_KEY=django-insecure-local-development-key
-    DEBUG=True
-    ```
+7. **Access the Application**
+   - Main App: http://127.0.0.1:8000/
+   - Admin Panel: http://127.0.0.1:8000/admin/
 
-5.  **Run Database Migrations**
-    * This will create the `db.sqlite3` file and set up the necessary tables for user accounts.
-    ```bash
-    python manage.py migrate
-    ```
+## 🌐 Deployment
 
-6.  **Create a Superuser (Optional)**
-    * This allows you to access the Django admin panel.
-    ```bash
-    python manage.py createsuperuser
-    ```
+### Render Deployment
 
-7.  **Run the Development Server**
-    ```bash
-    python manage.py runserver
-    ```
+This application is configured for deployment on Render with the following files:
 
-8.  **Access the Application**
-    * Open your web browser and navigate to `http://127.0.0.1:8000`.
-    * You will be redirected to the login page. You can register a new user or log in with the superuser credentials you created.
+#### `Procfile`
+```
+web: gunicorn dashboard_project.wsgi:application
+```
+
+#### `runtime.txt`
+```
+python-3.11.0
+```
+
+#### Environment Variables (Set in Render Dashboard)
+```
+DEBUG=False
+SECRET_KEY=your-secret-key-here
+ALLOWED_HOSTS=your-render-app.onrender.com
+```
+
+### Deployment Steps
+
+1. **Connect Repository**: Link your GitHub repository to Render
+2. **Configure Build Settings**:
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `gunicorn dashboard_project.wsgi:application`
+3. **Set Environment Variables**: Add necessary environment variables in Render dashboard
+4. **Deploy**: Render will automatically build and deploy your application
+
+## 🏗 Architecture
+
+### Backend Architecture
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Frontend      │    │   Django Views   │    │  World Bank API │
+│   (HTML/JS)     │◄──►│   & API Layer    │◄──►│    External     │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                │
+                                ▼
+                       ┌──────────────────┐
+                       │   SQLite DB      │
+                       │   (Data Cache)   │
+                       └──────────────────┘
+```
+
+### Data Flow
+1. **User Authentication**: Django's built-in auth system manages user sessions
+2. **Data Fetching**: Views fetch data from World Bank API and cache in local database
+3. **API Serialization**: Django REST Framework serializes data for frontend consumption
+4. **Frontend Rendering**: JavaScript processes API responses and renders charts using Chart.js
+
+### Security Features
+- CSRF protection on all forms
+- User authentication required for dashboard access
+- Input validation and sanitization
+- Secure session management
+
+## ⚠️ Probable Issues & Solutions
+
+### Common Issues
+
+#### 1. **World Bank API Rate Limiting**
+**Issue**: External API may have rate limits
+**Solution**: 
+- Implement caching mechanism in Django models
+- Add exponential backoff for API requests
+- Store frequently accessed data in local database
+
+#### 2. **Static Files Not Loading (Production)**
+**Issue**: CSS/JS files not served correctly on Render
+**Solution**: 
+- Ensure `STATIC_ROOT` is configured in settings.py
+- Run `python manage.py collectstatic` during deployment
+- WhiteNoise is configured for static file serving
+
+#### 3. **CORS Issues**
+**Issue**: Frontend API calls blocked by CORS policy
+**Solution**: 
+- `django-cors-headers` is installed and configured
+- Add your Render domain to `CORS_ALLOWED_ORIGINS`
+
+#### 4. **Database Migrations**
+**Issue**: Database not properly initialized on deployment
+**Solution**: 
+- Add migration command to Render build process
+- Ensure all migrations are committed to repository
+
+#### 5. **Environment Variables**
+**Issue**: Missing SECRET_KEY or other environment variables
+**Solution**: 
+- Use `.env.example` as reference
+- Set all required variables in Render dashboard
+- Use `python-decouple` for environment variable management
+
+### Debug Endpoints
+
+Use `/api/test/` endpoint to verify World Bank API connectivity:
+```bash
+curl https://your-app.onrender.com/api/test/
+```
+
+### Performance Optimization
+
+1. **Database Indexing**: Add indexes to frequently queried fields
+2. **API Caching**: Implement Redis for API response caching
+3. **Frontend Optimization**: Minify CSS/JS files for production
+4. **Database Connection Pooling**: Use connection pooling for better performance
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is developed for educational purposes as part of the Full Stack Developer Intern application at DeepQ-AI.
+
+## 🔗 Links
+
+- **Live Application**: [Your Render URL]
+- **GitHub Repository**: [Your GitHub URL]
+- **World Bank API Documentation**: https://datahelpdesk.worldbank.org/knowledgebase/articles/889392
 
 ---
 
-## 📡 API Endpoints
+### Assignment Completion Checklist ✅
 
-All data endpoints are protected and require the user to be authenticated.
+- [x] Django backend with interactive dashboard
+- [x] At least two different chart types (line charts, bar charts)
+- [x] Dynamic data fetched from backend API
+- [x] Filtering capabilities (country, date range, category)
+- [x] User authentication (login/logout)
+- [x] Restricted dashboard access for logged-in users
+- [x] World Bank Open Data integration
+- [x] Deployment on Render
+- [x] Comprehensive README documentation
 
-| Method | Endpoint                    | Description                                                                                              |
-| :----- | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
-| `GET`  | `/api/countries/`           | Fetches a list of countries from the World Bank API.                                                     |
-| `GET`  | `/api/gdp-data/`            | Fetches GDP data for the selected countries and date range.                                              |
-| `GET`  | `/api/population-data/`     | Fetches total population data for the selected countries and date range.                                 |
-| `GET`  | `/api/climate-data/`        | Fetches climate data (e.g., CO2 emissions). Requires an `indicator` query parameter.                     |
-| `GET`  | `/api/education-data/`      | Fetches education data (e.g., literacy rate). Requires an `indicator` query parameter.                   |
-| `GET`  | `/api/health-data/`         | Fetches health data (e.g., life expectancy). Requires an `indicator` query parameter.                    |
-
----
-
-## 🧐 Known Issues & Future Improvements
-
-* **Potential for Slow API Responses**: Since the application fetches data live from the World Bank API, initial load times or filter updates can sometimes be slow depending on the external API's performance.
-    * **Improvement**: Implement a caching layer (e.g., with Redis) to store frequently requested data, significantly speeding up response times.
-* **Limited Data Caching**: The application does not store the fetched World Bank data in its own database. The `WorldBankData` model is defined but currently unused in the data-fetching logic.
-    * **Improvement**: Create a background task (e.g., using Celery) to periodically fetch and store World Bank data in the local database. This would make the application more resilient to external API outages and faster for the end-user.
-* **Frontend Code in Template**: All JavaScript logic resides within a `<script>` tag in the `dashboard.html` template.
-    * **Improvement**: For larger projects, this logic could be moved to separate `.js` files and served as static assets. For even more complex interactivity, migrating the frontend to a dedicated framework like React or Vue.js would be a logical next step.
+**Submission Date**: August 28, 2025
+**Submitted to**: DeepQ-AI Full Stack Developer Intern Position
