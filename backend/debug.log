@@ -1,0 +1,634 @@
+Countries API response status: 200
+Countries API response length: 2
+Found 211 valid countries
+Returning 30 countries to frontend
+Fetching GDP data for countries: ['US', 'CN', 'IN'], years: 2018-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2018:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 15 data points
+Raw GDP data length: 15
+Processed 15 data points for 3 countries
+Fetching population data for countries: ['US', 'CN', 'IN'], years: 2018-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2018:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 15 data points
+Raw population data length: 15
+Processed 15 data points for 3 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Found 70 data points
+Raw GDP data length: 70
+Raw population data length: 70
+Processed 70 data points for 5 countries
+Processed 70 data points for 5 countries
+Fetching GDP data for countries: ['CN'], years: 2015-2023
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Fetching population data for countries: ['CN'], years: 2015-2023
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 9 data points
+Raw population data length: 9
+Processed 9 data points for 1 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 9 data points
+Raw GDP data length: 9
+Processed 9 data points for 1 countries
+Fetching GDP data for countries: ['CN'], years: 2015-2022
+Fetching population data for countries: ['CN'], years: 2015-2022
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2015:2022', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2015:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 8 data points
+Raw population data length: 8
+Processed 8 data points for 1 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 8 data points
+Raw GDP data length: 8
+Processed 8 data points for 1 countries
+Fetching population data for countries: ['CN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching GDP data for countries: ['CN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Indicator API response structure: <class 'list'>, length: 2
+Raw GDP data length: 13
+Processed 13 data points for 1 countries
+Found 13 data points
+Raw population data length: 13
+Processed 13 data points for 1 countries
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw population data length: 70
+Processed 70 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw GDP data length: 70
+Processed 70 data points for 5 countries
+Fetching GDP data for countries: ['US'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching population data for countries: ['US'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Error fetching indicator data: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+Raw GDP data length: 0
+Processed 0 data points for 0 countries
+No real data found, returning sample data
+Error fetching indicator data: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+Raw population data length: 0
+Processed 0 data points for 0 countries
+No real data found, returning sample data
+Fetching GDP data for countries: ['US'], years: 2015-2023
+Fetching data from: https://api.worldbank.org/v2/country/US/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Fetching population data for countries: ['US'], years: 2015-2023
+Fetching data from: https://api.worldbank.org/v2/country/US/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Error fetching indicator data: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+Raw population data length: 0
+Processed 0 data points for 0 countries
+No real data found, returning sample data
+Error fetching indicator data: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+Raw GDP data length: 0
+Processed 0 data points for 0 countries
+No real data found, returning sample data
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw GDP data length: 70
+Processed 70 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw population data length: 70
+Processed 70 data points for 5 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw population data length: 70
+Processed 70 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw GDP data length: 70
+Processed 70 data points for 5 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2015-2023
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2015-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Fetching GDP data for countries: ['CN'], years: 2015-2020
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2015:2020', 'per_page': 2000}
+Fetching population data for countries: ['CN'], years: 2015-2020
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2015:2020', 'per_page': 2000}
+Error fetching indicator data: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+Error fetching indicator data: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+Raw population data length: 0
+Raw GDP data length: 0
+Processed 0 data points for 0 countries
+Processed 0 data points for 0 countries
+No real data found, returning sample data
+Error fetching indicator data: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+Raw GDP data length: 0
+Processed 0 data points for 0 countries
+No real data found, returning sample data
+Error fetching indicator data: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+Raw population data length: 0
+Processed 0 data points for 0 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw population data length: 70
+Processed 70 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw GDP data length: 70
+Processed 70 data points for 5 countries
+No real data found, returning sample data
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw GDP data length: 65
+Processed 65 data points for 5 countries
+No real data found, returning sample data
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw population data length: 65
+Processed 65 data points for 5 countries
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw population data length: 70
+Processed 70 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Raw GDP data length: 70
+Processed 70 data points for 5 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2015-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2015-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 45 data points
+Raw GDP data length: 45
+Processed 45 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 45 data points
+Raw population data length: 45
+Processed 45 data points for 5 countries
+Fetching GDP data for countries: ['US'], years: 2015-2023
+Fetching population data for countries: ['US'], years: 2015-2023
+Fetching data from: https://api.worldbank.org/v2/country/US/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/US/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2015:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 9 data points
+Raw population data length: 9
+Processed 9 data points for 1 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 9 data points
+Raw GDP data length: 9
+Processed 9 data points for 1 countries
+Fetching population data for countries: ['US'], years: 2010-2023
+Fetching GDP data for countries: ['US'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/US/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 14 data points
+Indicator API response structure: <class 'list'>, length: 2
+Found 14 data points
+Raw GDP data length: 14
+Raw population data length: 14
+Processed 14 data points for 1 countries
+Processed 14 data points for 1 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Indicator API response structure: <class 'list'>, length: 2
+Found 70 data points
+Found 70 data points
+Raw population data length: 70
+Raw GDP data length: 70
+Processed 70 data points for 5 countries
+Processed 70 data points for 5 countries
+Fetching GDP data for countries: ['IN'], years: 2010-2023
+Fetching population data for countries: ['IN'], years: 2010-2023
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2023', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 14 data points
+Raw population data length: 14
+Processed 14 data points for 1 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 14 data points
+Raw GDP data length: 14
+Processed 14 data points for 1 countries
+Countries API response status: 200
+Countries API response length: 2
+Found 211 valid countries
+Returning 30 countries to frontend
+Fetching GDP data for countries: ['US', 'CN', 'IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw GDP data length: 39
+Processed 39 data points for 3 countries
+Fetching population data for countries: ['US', 'CN', 'IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw population data length: 39
+Processed 39 data points for 3 countries
+Fetching climate data (co2_emissions) for countries: ['US', 'CN', 'IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN/indicator/EN.ATM.CO2E.PC with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 1
+Raw climate data length: 0
+Processed 0 data points for 0 countries
+Fetching climate data (renewable_energy) for countries: ['US', 'DE', 'BR'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;DE;BR/indicator/EG.FEC.RNEW.ZS with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw climate data length: 39
+Processed 36 data points for 3 countries
+Fetching climate data (forest_area) for countries: ['BR', 'CA', 'RU'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/BR;CA;RU/indicator/AG.LND.FRST.ZS with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw climate data length: 39
+Processed 39 data points for 3 countries
+Fetching education data (literacy_rate) for countries: ['US', 'CN', 'IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN/indicator/SE.ADT.LITR.ZS with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw education data length: 39
+Processed 4 data points for 2 countries
+Fetching education data (school_enrollment) for countries: ['US', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;DE;JP/indicator/SE.PRM.NENR with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw education data length: 39
+Processed 16 data points for 2 countries
+Fetching health data (life_expectancy) for countries: ['JP', 'CH', 'ES'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/JP;CH;ES/indicator/SP.DYN.LE00.IN with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw health data length: 39
+Processed 39 data points for 3 countries
+Fetching health data (infant_mortality) for countries: ['IN', 'NG', 'PK'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN;NG;PK/indicator/SP.DYN.IMRT.IN with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw health data length: 39
+Processed 39 data points for 3 countries
+Fetching health data (infant_mortality) for countries: ['IN', 'NG', 'BR'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN;NG;BR/indicator/SP.DYN.IMRT.IN with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw health data length: 39
+Processed 39 data points for 3 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw GDP data length: 65
+Processed 65 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw population data length: 65
+Processed 65 data points for 5 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw population data length: 65
+Processed 65 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw GDP data length: 65
+Processed 65 data points for 5 countries
+Fetching GDP data for countries: ['DE'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching population data for countries: ['DE'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Raw population data length: 13
+Processed 13 data points for 1 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Raw GDP data length: 13
+Processed 13 data points for 1 countries
+Fetching climate data (co2_emissions) for countries: ['DE'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/EN.ATM.CO2E.PC with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 1
+Raw climate data length: 0
+Processed 0 data points for 0 countries
+Fetching climate data (renewable_energy) for countries: ['IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/EG.FEC.RNEW.ZS with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Raw climate data length: 13
+Processed 12 data points for 1 countries
+Fetching climate data (forest_area) for countries: ['IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/AG.LND.FRST.ZS with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Raw climate data length: 13
+Processed 13 data points for 1 countries
+Fetching education data (literacy_rate) for countries: ['JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/JP/indicator/SE.ADT.LITR.ZS with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Raw education data length: 13
+Processed 0 data points for 0 countries
+Fetching education data (school_enrollment) for countries: ['IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/SE.PRM.NENR with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Raw education data length: 13
+Processed 4 data points for 1 countries
+Fetching education data (school_enrollment) for countries: ['IN'], years: 2015-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/SE.PRM.NENR with params: {'format': 'json', 'date': '2015:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 8 data points
+Raw education data length: 8
+Processed 0 data points for 0 countries
+Fetching education data (school_enrollment) for countries: ['CN'], years: 2015-2022
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/SE.PRM.NENR with params: {'format': 'json', 'date': '2015:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 8 data points
+Raw education data length: 8
+Processed 0 data points for 0 countries
+Fetching education data (completion_rate) for countries: ['DE'], years: 2015-2022
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/SE.PRM.CMPT.ZS with params: {'format': 'json', 'date': '2015:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 8 data points
+Raw education data length: 8
+Processed 8 data points for 1 countries
+Fetching education data (completion_rate) for countries: ['IN'], years: 2015-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/SE.PRM.CMPT.ZS with params: {'format': 'json', 'date': '2015:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 8 data points
+Raw education data length: 8
+Processed 6 data points for 1 countries
+Fetching health data (life_expectancy) for countries: ['IN'], years: 2015-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/SP.DYN.LE00.IN with params: {'format': 'json', 'date': '2015:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 8 data points
+Raw health data length: 8
+Processed 8 data points for 1 countries
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw GDP data length: 65
+Processed 65 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw population data length: 65
+Processed 65 data points for 5 countries
+Fetching population data for countries: ['CN'], years: 2010-2018
+Fetching GDP data for countries: ['CN'], years: 2010-2018
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2018', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/CN/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2018', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 9 data points
+Raw population data length: 9
+Processed 9 data points for 1 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 9 data points
+Raw GDP data length: 9
+Processed 9 data points for 1 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw population data length: 65
+Processed 65 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw GDP data length: 65
+Processed 65 data points for 5 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2000-2022
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2000-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2000:2022', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2000:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 115 data points
+Raw GDP data length: 115
+Processed 115 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 115 data points
+Raw population data length: 115
+Processed 115 data points for 5 countries
+Fetching population data for countries: ['DE'], years: 2000-2022
+Fetching GDP data for countries: ['DE'], years: 2000-2022
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2000:2022', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2000:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 23 data points
+Raw GDP data length: 23
+Processed 23 data points for 1 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 23 data points
+Raw population data length: 23
+Processed 23 data points for 1 countries
+Fetching climate data (co2_emissions) for countries: ['DE'], years: 2000-2022
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/EN.ATM.CO2E.PC with params: {'format': 'json', 'date': '2000:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 1
+Raw climate data length: 0
+Processed 0 data points for 0 countries
+Fetching climate data (renewable_energy) for countries: ['IN'], years: 2000-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/EG.FEC.RNEW.ZS with params: {'format': 'json', 'date': '2000:2022', 'per_page': 2000}
+Error fetching indicator data: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+Raw climate data length: 0
+Processed 0 data points for 0 countries
+Countries API response status: 200
+Countries API response length: 2
+Found 211 valid countries
+Returning 30 countries to frontend
+Fetching GDP data for countries: ['US', 'CN', 'IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw GDP data length: 39
+Processed 39 data points for 3 countries
+Fetching population data for countries: ['US', 'CN', 'IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw population data length: 39
+Processed 39 data points for 3 countries
+Fetching climate data (co2_emissions) for countries: ['US', 'CN', 'IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN/indicator/EN.ATM.CO2E.PC with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 1
+Raw climate data length: 0
+Processed 0 data points for 0 countries
+Fetching climate data (renewable_energy) for countries: ['US', 'DE', 'BR'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;DE;BR/indicator/EG.FEC.RNEW.ZS with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw climate data length: 39
+Processed 36 data points for 3 countries
+Fetching climate data (forest_area) for countries: ['BR', 'CA', 'RU'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/BR;CA;RU/indicator/AG.LND.FRST.ZS with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 39 data points
+Raw climate data length: 39
+Processed 39 data points for 3 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw population data length: 65
+Processed 65 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw GDP data length: 65
+Processed 65 data points for 5 countries
+Fetching GDP data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching population data for countries: ['US', 'CN', 'IN', 'DE', 'JP'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/US;CN;IN;DE;JP/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw population data length: 65
+Processed 65 data points for 5 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 65 data points
+Raw GDP data length: 65
+Processed 65 data points for 5 countries
+Fetching GDP data for countries: ['DE'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/NY.GDP.MKTP.CD with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Fetching population data for countries: ['DE'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/SP.POP.TOTL with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Raw population data length: 13
+Processed 13 data points for 1 countries
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Raw GDP data length: 13
+Processed 13 data points for 1 countries
+Fetching climate data (co2_emissions) for countries: ['DE'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/DE/indicator/EN.ATM.CO2E.PC with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 1
+Raw climate data length: 0
+Processed 0 data points for 0 countries
+Fetching climate data (renewable_energy) for countries: ['IN'], years: 2010-2022
+Fetching data from: https://api.worldbank.org/v2/country/IN/indicator/EG.FEC.RNEW.ZS with params: {'format': 'json', 'date': '2010:2022', 'per_page': 2000}
+Indicator API response status: 200
+Indicator API response structure: <class 'list'>, length: 2
+Found 13 data points
+Raw climate data length: 13
+Processed 12 data points for 1 countries

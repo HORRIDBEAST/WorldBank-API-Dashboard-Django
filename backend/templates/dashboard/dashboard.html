@@ -1,0 +1,353 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center text-white mb-4">🌍 World Bank Data Dashboard</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="filter-section">
+                <h5 class="mb-3">📊 Dashboard Controls</h5>
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-6">
+                        <label for="categorySelect" class="form-label">Data Category</label>
+                        <select id="categorySelect" class="form-select">
+                            <option value="economic" selected>💰 Economic Data</option>
+                            <option value="climate">🌱 Climate & Environment</option>
+                            <option value="education">🎓 Education Statistics</option>
+                            <option value="health">🏥 Health & Nutrition</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6" id="indicatorContainer" style="display: none;">
+                        <label for="indicatorSelect" class="form-label">Specific Indicator</label>
+                        <select id="indicatorSelect" class="form-select"></select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="countrySelect" class="form-label">Countries (max 5)</label>
+                        <select id="countrySelect" class="form-select" multiple>
+                            <option value="US" selected>United States</option>
+                            <option value="CN" selected>China</option>
+                            <option value="IN" selected>India</option>
+                            <option value="DE" selected>Germany</option>
+                            <option value="JP" selected>Japan</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="startYear" class="form-label">From</label>
+                        <select id="startYear" class="form-select">
+                            <option>2000</option>
+                            <option>2005</option>
+                            <option selected>2010</option>
+                            <option>2015</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="endYear" class="form-label">To</label>
+                        <select id="endYear" class="form-select">
+                            <option>2018</option>
+                            <option selected>2022</option>
+                            <option>2024</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="updateCharts" class="btn btn-primary w-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/><path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/></svg>
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingIndicator" class="text-center text-white my-4" style="display: none;">
+        <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+        <p class="mt-2">Fetching fresh data from the World Bank...</p>
+    </div>
+
+    <div id="dashboard-content" class="section-transition">
+        </div>
+</div>
+
+<style>
+    .chart-container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        padding: 25px;
+        margin-bottom: 25px;
+        height: 450px;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .chart-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+    .chart-container canvas {
+        max-height: 100%;
+        width: 100%;
+    }
+    .stats-container { height: auto; }
+    .stats-card {
+        background: #f8f9fa;
+        border: none;
+        border-radius: 10px;
+        transition: transform 0.2s ease;
+    }
+    .stats-card:hover { transform: scale(1.05); }
+    .section-transition {
+        animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+{% csrf_token %}
+
+<script>
+    // --- CONFIGURATION ---
+    // Chart.js global settings for a modern look
+    Chart.defaults.font.family = "'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif";
+    Chart.defaults.responsive = true;
+    Chart.defaults.maintainAspectRatio = false;
+    Chart.defaults.plugins.legend.position = 'bottom';
+    Chart.defaults.interaction.mode = 'index';
+    Chart.defaults.interaction.intersect = false;
+
+    // Color palette
+    const COLORS = ['#007bff', '#28a745', '#ffc107', '#dc3545', '#17a2b8', '#6610f2'];
+
+    // Category and indicator mapping
+    const CATEGORY_CONFIG = {
+        economic: {
+            title: "💰 Economic Overview",
+            endpoints: ['gdp-data', 'population-data'],
+            charts: [
+                { id: 'gdpChart', title: 'GDP (Current US$)', type: 'line' },
+                { id: 'populationChart', title: 'Total Population', type: 'bar' }
+            ]
+        },
+        climate: {
+            title: "🌱 Climate & Environment",
+            endpoint: 'climate-data',
+            indicators: [
+                { value: 'co2_emissions', label: 'CO2 Emissions (metric tons per capita)' },
+                { value: 'renewable_energy', label: 'Renewable Energy Consumption (%)' },
+                { value: 'forest_area', label: 'Forest Area (% of land)' }
+            ]
+        },
+        education: {
+            title: "🎓 Education Statistics",
+            endpoint: 'education-data',
+            indicators: [
+                { value: 'literacy_rate', label: 'Adult Literacy Rate (%)' },
+                { value: 'school_enrollment', label: 'Primary School Enrollment (% net)' },
+                { value: 'completion_rate', label: 'Primary Completion Rate (% of relevant age group)' }
+            ]
+        },
+        health: {
+            title: "🏥 Health & Nutrition",
+            endpoint: 'health-data',
+            indicators: [
+                { value: 'life_expectancy', label: 'Life Expectancy at Birth (years)' },
+                { value: 'infant_mortality', label: 'Infant Mortality (per 1,000 live births)' },
+                { value: 'malnutrition', label: 'Malnutrition Prevalence (% of children under 5)' }
+            ]
+        }
+    };
+
+    // --- UTILITY FUNCTIONS ---
+    const showLoading = () => document.getElementById('loadingIndicator').style.display = 'block';
+    const hideLoading = () => document.getElementById('loadingIndicator').style.display = 'none';
+
+    async function fetchData(endpoint, params = '') {
+        try {
+            const response = await fetch(`/api/${endpoint}/?${params}`, {
+                headers: { 'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value },
+                credentials: 'same-origin'
+            });
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return await response.json();
+        } catch (error) {
+            console.error(`Error fetching ${endpoint}:`, error);
+            alert(`Failed to fetch data for ${endpoint}. Please check the console for details.`);
+            return null;
+        }
+    }
+
+    // --- UI & CHARTING FUNCTIONS ---
+    function updateIndicatorDropdown() {
+        const category = document.getElementById('categorySelect').value;
+        const indicatorContainer = document.getElementById('indicatorContainer');
+        const indicatorSelect = document.getElementById('indicatorSelect');
+        
+        if (category === 'economic') {
+            indicatorContainer.style.display = 'none';
+        } else {
+            indicatorContainer.style.display = 'block';
+            indicatorSelect.innerHTML = '';
+            CATEGORY_CONFIG[category].indicators.forEach(ind => {
+                const option = new Option(ind.label, ind.value);
+                indicatorSelect.add(option);
+            });
+        }
+    }
+
+    function createChart(canvasId, type, data, title) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        const existingChart = Chart.getChart(ctx);
+        if (existingChart) existingChart.destroy();
+
+        let datasets;
+        let labels;
+
+        // Prepare data based on chart type
+        if (type === 'line' || type === 'radar') {
+            labels = [...new Set(Object.values(data).flat().map(d => d.year))].sort();
+            datasets = Object.keys(data).map((country, i) => ({
+                label: country,
+                data: labels.map(year => data[country].find(d => d.year === year)?.value ?? null),
+                borderColor: COLORS[i % COLORS.length],
+                backgroundColor: COLORS[i % COLORS.length] + '33', // Add transparency
+                fill: type === 'radar',
+                tension: 0.3
+            }));
+        } else { // bar or doughnut
+            labels = Object.keys(data);
+            const latestValues = labels.map(country => data[country].at(-1)?.value ?? 0);
+            datasets = [{
+                data: latestValues,
+                backgroundColor: labels.map((_, i) => COLORS[i % COLORS.length]),
+            }];
+        }
+
+        new Chart(ctx, {
+            type,
+            data: { labels, datasets },
+            options: { plugins: { title: { display: true, text: title, font: { size: 16 } } } }
+        });
+    }
+
+    function renderDashboardContent(category, data, indicatorData = null) {
+        const contentDiv = document.getElementById('dashboard-content');
+        contentDiv.innerHTML = ''; // Clear previous content
+
+        let html = '';
+        if (category === 'economic') {
+            const [gdpData, populationData] = data;
+            html = `
+                <div class="row">
+                    <div class="col-lg-6"><div class="chart-container"><canvas id="gdpChart"></canvas></div></div>
+                    <div class="col-lg-6"><div class="chart-container"><canvas id="populationChart"></canvas></div></div>
+                </div>
+                <div class="row"><div class="col-12"><div class="chart-container stats-container"><h5 class="mb-3">📈 Key Statistics</h5><div id="statsContainer" class="row g-3"></div></div></div></div>
+            `;
+            contentDiv.innerHTML = html;
+            if (gdpData) createChart('gdpChart', 'line', gdpData, 'GDP (Current US$)');
+            if (populationData) createChart('populationChart', 'bar', populationData, 'Total Population (Latest Year)');
+            // TODO: updateStats for economic
+        } else {
+            const indicatorConfig = CATEGORY_CONFIG[category].indicators.find(i => i.value === document.getElementById('indicatorSelect').value);
+            const title = indicatorConfig.label;
+            html = `
+                <div class="row">
+                    <div class="col-12"><div class="chart-container"><canvas id="mainChart"></canvas></div></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6"><div class="chart-container"><canvas id="trendChart"></canvas></div></div>
+                    <div class="col-lg-6"><div class="chart-container"><canvas id="comparisonChart"></canvas></div></div>
+                </div>
+                 <div class="row"><div class="col-12"><div class="chart-container stats-container"><h5 class="mb-3">📈 Key Statistics</h5><div id="statsContainer" class="row g-3"></div></div></div></div>
+            `;
+            contentDiv.innerHTML = html;
+            if (indicatorData) {
+                createChart('mainChart', 'line', indicatorData, title);
+                createChart('trendChart', 'radar', indicatorData, `${title} - Trend Comparison`);
+                createChart('comparisonChart', 'bar', indicatorData, `${title} - Latest Year`);
+                updateStats(indicatorData, title);
+            }
+        }
+    }
+    
+    function updateStats(data, title) {
+        const container = document.getElementById('statsContainer');
+        container.innerHTML = '';
+        Object.keys(data).forEach(country => {
+            const values = data[country];
+            if (!values || values.length === 0) return;
+
+            const latest = values.at(-1);
+            const earliest = values[0];
+            const change = earliest.value !== 0 ? ((latest.value - earliest.value) / Math.abs(earliest.value)) * 100 : 0;
+            const trendIcon = change > 1 ? '📈' : change < -1 ? '📉' : '➡️';
+
+            const card = document.createElement('div');
+            card.className = 'col-md-6 col-lg-3';
+            card.innerHTML = `
+                <div class="card h-100 stats-card">
+                    <div class="card-body text-center">
+                        <h6 class="card-title text-primary">${country}</h6>
+                        <p class="h4 card-text my-2">${latest.value.toLocaleString(undefined, {maximumFractionDigits: 1})}</p>
+                        <p class="card-text text-muted">
+                            <small>${title} (${latest.year})</small>
+                        </p>
+                        <span class="badge ${change >= 0 ? 'text-bg-success' : 'text-bg-danger'}">
+                            ${trendIcon} ${change.toFixed(1)}%
+                        </span>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+
+    // --- MAIN LOGIC ---
+    async function loadDashboard() {
+        showLoading();
+        document.getElementById('dashboard-content').innerHTML = ''; // Clear view
+
+        const selectedCountries = Array.from(document.getElementById('countrySelect').selectedOptions).map(o => o.value);
+        const startYear = document.getElementById('startYear').value;
+        const endYear = document.getElementById('endYear').value;
+        const category = document.getElementById('categorySelect').value;
+
+        const baseParams = `countries=${selectedCountries.join(';')}&start_year=${startYear}&end_year=${endYear}`;
+        
+        if (category === 'economic') {
+            const data = await Promise.all(
+                CATEGORY_CONFIG.economic.endpoints.map(ep => fetchData(ep, baseParams))
+            );
+            renderDashboardContent('economic', data);
+        } else {
+            const indicator = document.getElementById('indicatorSelect').value;
+            const params = `${baseParams}&indicator=${indicator}`;
+            const data = await fetchData(CATEGORY_CONFIG[category].endpoint, params);
+            renderDashboardContent(category, null, data);
+        }
+
+        hideLoading();
+    }
+
+    // --- EVENT LISTENERS ---
+    document.getElementById('categorySelect').addEventListener('change', () => {
+        updateIndicatorDropdown();
+        loadDashboard();
+    });
+    document.getElementById('updateCharts').addEventListener('click', loadDashboard);
+    
+    // Initial Load
+    document.addEventListener('DOMContentLoaded', () => {
+        updateIndicatorDropdown();
+        loadDashboard();
+    });
+</script>
+{% endblock %}
